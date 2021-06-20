@@ -5,7 +5,7 @@ const redisClient = redis.createClient();
 
 
 exports.customRedisRateLimiter = (req, res, next) => {
-  const WINDOW_SIZE_IN_HOURS = Number(process.env.WINDOW_SIZE_IN_HOURS);
+  const WINDOW_SIZE_IN_HOURS = Number(process.env.DEFAULT_WINDOW_SIZE_IN_HOURS);
   const MAX_WINDOW_REQUEST_COUNT = Number(req.maxWindowsRequestCount);
 
   const reference = `${req.ip}${req.originalUrl}${req.method}`;
